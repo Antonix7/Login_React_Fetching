@@ -1,0 +1,21 @@
+/* Login card styles */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color:black;
+    margin: 0;
+}
+.login-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 200px;
+    height: 200px;
+    padding: 10px;
+    border: 2px;
+    border-radius: 10px;
+    background-color:blueviolet;
+}
