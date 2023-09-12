@@ -1,8 +1,24 @@
 import './App.css';
+import { useState  } from 'react'
+import { users } from './components/users';
 
 export function App() {
-  const [userName, setUseName] = userState("");
-  const [userPassword, setUserPassword] = userState("");
+  const [userName, setUseName] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+
+  function userExist() {
+    // Verificar si el usuario existe
+    const exists = users.some(
+      user => user.userName === userName && user.userPassword === userPassword
+    );
+
+    // Mostrar un mensaje según el resultado
+    if (exists) {
+      alert("Usuario existe");
+    } else {
+      alert("Usuario no existe");
+    }
+  }
 
   return(
     <>
@@ -22,7 +38,10 @@ export function App() {
             value={userPassword}
             onChange={e => setUserPassword(e.target.value)}
             required/><br/>
-          <button type="submit">Acceder</button>
+          <button 
+            type="button" 
+            onClick={() => userExist(userName, userPassword)}
+          >Acceder</button>
         </form>
       </div>
     </>
