@@ -7,12 +7,10 @@ export function App() {
   const [userPassword, setUserPassword] = useState("");
 
   function userExist() {
-    // Verificar si el usuario existe
     const exists = users.some(
       user => user.userName === userName && user.userPassword === userPassword
     );
 
-    // Mostrar un mensaje según el resultado
     if (exists) {
       alert("Usuario existe");
     } else {
