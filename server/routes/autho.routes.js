@@ -3,6 +3,6 @@ import { sqlConnect } from "../controllers/autho.controller";
 
 const router = Router();
 
-router.get('/', sqlConnect);
+router.get('/connect/usuarios', sqlConnect);
 
 export default router;

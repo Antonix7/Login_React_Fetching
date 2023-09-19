@@ -5,18 +5,30 @@ import { users } from './components/users';
 export function App() {
   const [userName, setUseName] = useState("");
   const [userPassword, setUserPassword] = useState("");
+  const [usuarioEncontrado, setUsuarioEncontrado] = useState(null);
 
-  function userExist() {
-    const exists = users.some(
-      user => user.userName === userName && user.userPassword === userPassword
-    );
-
-    if (exists) {
-      alert("Usuario existe");
-    } else {
-      alert("Usuario no existe");
-    }
-  }
+  const searchUser = () => {
+    fetch('/connect/usuarios', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ userName }),
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error('Usuario no encontrado');
+        }
+        return response.json();
+      })
+      .then(data => {
+        setUsuarioEncontrado(data);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setUsuarioEncontrado(null);
+      });
+  };
 
   return(
     <>
@@ -38,7 +50,7 @@ export function App() {
             required/><br/>
           <button 
             type="button" 
-            onClick={() => userExist(userName, userPassword)}
+            onClick={() => searchUser}
           >Acceder</button>
         </form>
       </div>
