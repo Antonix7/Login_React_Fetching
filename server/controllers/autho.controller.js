@@ -6,7 +6,7 @@ const dbConfig = {
     database: ""
 }
 
-const sqlConnect = async (res, req) => {
+export const sqlConnect = async (res, req) => {
     try {
         await sql.connect(dbConfig)
     } catch (error) {
