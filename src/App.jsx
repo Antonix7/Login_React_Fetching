@@ -37,7 +37,7 @@ export function App() {
           <h1>Login</h1>
           <input 
             type="text" 
-            placeholder="usuario"
+            placeholder="nombre de usuario"
             value={userName} 
             onChange={e => setUseName(e.target.value)}
             required

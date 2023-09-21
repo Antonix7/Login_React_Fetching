@@ -1,16 +1,12 @@
+import { dbConfig } from "../database/db_config";
 
-const dbConfig = {
-    user: "",
-    password: "12345678",
-    server: "localhost",
-    database: ""
-}
-
+// function for filter user for userName...
 export const sqlConnect = async (res, req) => {
     const {userName} = req.body;
     try {
         await sql.connect(dbConfig);
 
+        // consult...
         const result = await sql.query(`SELECT * FROM usuarios WHERE userName = ${userName}`);
 
         if(result.recordset.length > 0) {
@@ -27,6 +23,7 @@ export const sqlConnect = async (res, req) => {
             message: "Error al intentar connectar"
         });
     } finally {
+        // close connection...
         sql.close();
     }
 }
