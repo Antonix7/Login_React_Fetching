@@ -1,18 +1,15 @@
-export const users = [
-    {
-        userName: "Nina",
-        userPassword: "123456",
-    },
-    {
-        userName: "Henny",
-        userPassword: "123456",
-    },
-    {
-        userName: "Omar",
-        userPassword: "123456",
-    },
-    {
-        userName: "Carlos",
-        userPassword: "123456",
-    }
-]
+export const users = () => {
+
+    return(
+        <>
+            <div>
+                <h1>Datos de usuario</h1>
+                <ul>
+                    <li>
+                        {usuarioEncontrado}
+                    </li>
+                </ul>
+            </div>
+        </>
+    )
+}
