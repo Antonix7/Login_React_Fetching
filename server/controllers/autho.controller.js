@@ -13,7 +13,7 @@ export const sqlConnect = async (res, req) => {
             res.status(200).json(result.recordset);
         } else {
             res.status(404).json({
-                message: "No se encuentra el usuario"
+                message: "Usuario no encontrado"
             })
         }
 
